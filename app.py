@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 import random
+import time
 
 app = Flask(__name__)
 
@@ -9,6 +10,10 @@ service_is_failing = False
 @app.route("/consulta", methods=["GET"])
 def consulta():
     global service_is_failing
+
+    # Add random delay between 0-1 seconds
+    delay_time = random.random()
+    time.sleep(delay_time)
 
     # Randomly fail 30% of the time
     if random.random() < 0.3:
