@@ -15,12 +15,12 @@ def consulta():
     delay_time = random.random()
     time.sleep(delay_time)
 
-    # Randomly fail 30% of the time
-    if random.random() < 0.3:
+    # Randomly fail 10% of the time
+    if random.random() < 0.1:
         service_is_failing = True
         return jsonify({"error": "Service unavailable"}), 503
 
-    # Success response 70% of the time
+    # Success response 90% of the time
     service_is_failing = False
     # Generate 10-100 random items
     num_items = random.randint(10, 100)
